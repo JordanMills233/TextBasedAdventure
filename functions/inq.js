@@ -13,17 +13,28 @@ const name = async () => {
   }
 };
 
-const leftOrRight = async (weapons) => {
-  const { pathChosen } = await inquirer.prompt({
+const leftOrRight = async () => {
+  const pathChosen = await inquirer.prompt({
     type: "list",
     name: "leftOrRight",
     message: "Do you turn left or right?",
     choices: ["left", "right"],
   });
-  return pathChosen;
+  return pathChosen.leftOrRight;
+};
+
+const investigateSoundOrMove = async () => {
+  const soundOrMove = await inquirer.prompt({
+    type: "list",
+    name: "soundOrMove",
+    message: "Do you Investigate the sound or Keep moving forward",
+    choices: ["Investigate the sound", "Keep moving forward"],
+  });
+  return soundOrMove.soundOrMove;
 };
 
 module.exports = {
   name,
   leftOrRight,
+  investigateSoundOrMove,
 };
