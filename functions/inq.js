@@ -6,8 +6,8 @@ const name = async () => {
     name: "userInput",
     message: "what is your name?",
   });
-  if (!userInput.match(/^[a-zA-Z]+/g)) {
-    return "letters only please";
+  if (!userInput.match(/^[A-Za-z]+$/)) {
+    return "use letters only";
   } else {
     return userInput;
   }
@@ -33,8 +33,19 @@ const investigateSoundOrMove = async () => {
   return soundOrMove.soundOrMove;
 };
 
+const climbOrLookAway = async () => {
+  const climbOrLook = await inquirer.prompt({
+    type: "list",
+    name: "climbOrLook",
+    message: "do you climb down to the pool or look for a way around the cliff",
+    choices: ["climb down to the pool", "look for a way around the cliff"],
+  });
+  return climbOrLook.climbOrLook;
+};
+
 module.exports = {
   name,
   leftOrRight,
   investigateSoundOrMove,
+  climbOrLookAway,
 };
