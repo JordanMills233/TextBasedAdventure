@@ -1,5 +1,7 @@
 const inquirer = require("inquirer");
 
+const { randomDecision, randomMathQuestion } = require("./helper");
+
 const name = async () => {
   const { userInput } = await inquirer.prompt({
     type: "input",
@@ -43,9 +45,21 @@ const climbOrLookAway = async () => {
   return climbOrLook.climbOrLook;
 };
 
+const answerMath = async () => {
+  let answer = randomMathQuestion();
+  const answerForMath = await inquirer.prompt({
+    type: "input",
+    name: "answerForMath",
+    message:
+      "please answer the math question above you have 1 try dont mess this up!",
+  });
+  return [answer, answerForMath.answerForMath];
+};
+
 module.exports = {
   name,
   leftOrRight,
   investigateSoundOrMove,
   climbOrLookAway,
+  answerMath,
 };
