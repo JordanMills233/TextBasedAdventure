@@ -64,7 +64,7 @@ that looks like it would sell for a lot`);
     console.log(chalk.redBright("OOPS YOU DIED"));
   } else if (result == "look for a way around the cliff") {
     console.log(`You search around the edge of the cliff, looking for a way to get past the waterfall without climbing down. After a few minutes of searching,
-    you find a rather large gap but you are sure if you get the right amount of speed you can jump it!`);
+you find a rather large gap but you are sure if you get the right amount of speed you can jump it!`);
     let answer = await answerMath();
     if (answer[0] == answer[1]) {
       victoryMessage();
