@@ -1,4 +1,4 @@
-let { name } = require("../functions/inq");
+let { name, answerMath } = require("../functions/inq");
 
 const inquirer = require("inquirer");
 jest.mock("inquirer");
@@ -24,4 +24,12 @@ describe("name function test", () => {
 
     await expect(name()).resolves.toEqual("use letters only");
   });
+});
+
+describe("answerMath function test", () => {
+  test("output is an array of length 2", async () => {
+    let response = await answerMath();
+    await expect(response.length).toBe(2);
+  });
+  // add regular expression to validate that user input is a number
 });

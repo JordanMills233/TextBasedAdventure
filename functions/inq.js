@@ -47,13 +47,28 @@ const climbOrLookAway = async () => {
 
 const answerMath = async () => {
   let answer = randomMathQuestion();
-  const answerForMath = await inquirer.prompt({
+  let answerForMath = await inquirer.prompt({
     type: "input",
     name: "answerForMath",
     message:
       "please answer the math question above you have 1 try dont mess this up!",
   });
+  if (!answerForMath.answerForMath.match(/^[0-9]*$/)) {
+    console.log("TRY AGAIN NUMBERS ONLY");
+    [answer, answerForMath.answerForMath] = await answerMath();
+  } else {
+    return [answer, answerForMath.answerForMath];
+  }
   return [answer, answerForMath.answerForMath];
+};
+
+const rockPaperScissorsGame = async () => {
+  let userChoice = await inquirer.prompt({
+    type: "input",
+    name: "userChoice",
+    message: "Rock Paper Scissors GO...",
+  });
+  return userChoice.userChoice;
 };
 
 module.exports = {
@@ -62,4 +77,5 @@ module.exports = {
   investigateSoundOrMove,
   climbOrLookAway,
   answerMath,
+  rockPaperScissorsGame,
 };
