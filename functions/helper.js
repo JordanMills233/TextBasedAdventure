@@ -1,3 +1,5 @@
+const chalk = require("chalk");
+
 // needs tests
 const randomDecision = () => {
   return Math.floor(Math.random() * 10 + 1);
@@ -28,8 +30,22 @@ const rockPaperScissors = (userChoice) => {
   }
 };
 
+const victoryMessage = () => {
+  var figlet = require("figlet");
+
+  figlet("YOU FOUND THE TREASURE", function (err, data) {
+    if (err) {
+      console.log("Something went wrong...");
+      console.dir(err);
+      return;
+    }
+    console.log(chalk.greenBright(data));
+  });
+};
+
 module.exports = {
   randomDecision,
   randomMathQuestion,
   rockPaperScissors,
+  victoryMessage,
 };

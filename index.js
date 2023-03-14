@@ -1,3 +1,5 @@
+const chalk = require("chalk");
+
 const {
   name,
   leftOrRight,
@@ -7,7 +9,11 @@ const {
   rockPaperScissorsGame,
 } = require("./functions/inq");
 
-const { randomDecision, rockPaperScissors } = require("./functions/helper");
+const {
+  randomDecision,
+  rockPaperScissors,
+  victoryMessage,
+} = require("./functions/helper");
 
 let { player } = require("./store/playerStore");
 
@@ -55,19 +61,20 @@ const userClimbOrLookAway = async () => {
 that looks like it would sell for a lot`);
       return 0;
     }
-    console.log("OOPS YOU DIED");
+    console.log(chalk.redBright("OOPS YOU DIED"));
   } else if (result == "look for a way around the cliff") {
     console.log(`You search around the edge of the cliff, looking for a way to get past the waterfall without climbing down. After a few minutes of searching,
     you find a rather large gap but you are sure if you get the right amount of speed you can jump it!`);
     let answer = await answerMath();
     if (answer[0] == answer[1]) {
+      victoryMessage();
       console.log(`You take a run up and thanks to your math expertise you clear the gap with ease you look up and notice a narrow path that leads behind the waterfall.
 you see a cave opening, you explore to the centre and you find ancient ruins hold a shiny artefact that looks like it would sell for a lot`);
     } else {
       console.log(
         `You really should of paid attention during math class. you take a run up and drastically underestimate the size of the gap and fall 500ft to your death`
       );
-      console.log("OOPS YOU DIED");
+      console.log(chalk.redBright("OOPS YOU DIED"));
     }
   }
 };
