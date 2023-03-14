@@ -1,11 +1,12 @@
-const chalk = require("chalk");
+import chalk from "chalk";
+import figlet from "figlet";
 
 // needs tests
-const randomDecision = () => {
+export const randomDecision = () => {
   return Math.floor(Math.random() * 10 + 1);
 };
 
-const randomMathQuestion = () => {
+export const randomMathQuestion = () => {
   let int1 = Math.floor(Math.random() * 100 + 1);
   let int2 = Math.floor(Math.random() * 100 + 1);
 
@@ -13,7 +14,7 @@ const randomMathQuestion = () => {
   return int1 + int2;
 };
 
-const rockPaperScissors = (userChoice) => {
+export const rockPaperScissors = (userChoice) => {
   let options = ["rock", "paper", "scissors"];
   let oppChoice = options[Math.floor(Math.random() * 3)];
 
@@ -30,9 +31,7 @@ const rockPaperScissors = (userChoice) => {
   }
 };
 
-const victoryMessage = () => {
-  var figlet = require("figlet");
-
+export const victoryMessage = () => {
   figlet("YOU FOUND THE TREASURE", function (err, data) {
     if (err) {
       console.log("Something went wrong...");
@@ -43,9 +42,9 @@ const victoryMessage = () => {
   });
 };
 
-module.exports = {
-  randomDecision,
-  randomMathQuestion,
-  rockPaperScissors,
-  victoryMessage,
-};
+// module.exports = {
+//   randomDecision,
+//   randomMathQuestion,
+//   rockPaperScissors,
+//   victoryMessage,
+// };

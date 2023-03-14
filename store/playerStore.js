@@ -1,8 +1,4 @@
-let player = {
+export let player = {
   name: "",
   health: 10,
-};
-
-module.exports = {
-  player,
 };

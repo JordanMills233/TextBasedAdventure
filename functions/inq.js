@@ -1,8 +1,8 @@
-const inquirer = require("inquirer");
+import inquirer from "inquirer";
 
-const { randomDecision, randomMathQuestion } = require("./helper");
+import { randomDecision, randomMathQuestion } from "./helper.js";
 
-const name = async () => {
+export const name = async () => {
   const { userInput } = await inquirer.prompt({
     type: "input",
     name: "userInput",
@@ -15,7 +15,7 @@ const name = async () => {
   }
 };
 
-const leftOrRight = async () => {
+export const leftOrRight = async () => {
   const pathChosen = await inquirer.prompt({
     type: "list",
     name: "leftOrRight",
@@ -25,7 +25,7 @@ const leftOrRight = async () => {
   return pathChosen.leftOrRight;
 };
 
-const investigateSoundOrMove = async () => {
+export const investigateSoundOrMove = async () => {
   const soundOrMove = await inquirer.prompt({
     type: "list",
     name: "soundOrMove",
@@ -35,7 +35,7 @@ const investigateSoundOrMove = async () => {
   return soundOrMove.soundOrMove;
 };
 
-const climbOrLookAway = async () => {
+export const climbOrLookAway = async () => {
   const climbOrLook = await inquirer.prompt({
     type: "list",
     name: "climbOrLook",
@@ -45,7 +45,7 @@ const climbOrLookAway = async () => {
   return climbOrLook.climbOrLook;
 };
 
-const answerMath = async () => {
+export const answerMath = async () => {
   let answer = randomMathQuestion();
   let answerForMath = await inquirer.prompt({
     type: "input",
@@ -62,7 +62,7 @@ const answerMath = async () => {
   return [answer, answerForMath.answerForMath];
 };
 
-const rockPaperScissorsGame = async () => {
+export const rockPaperScissorsGame = async () => {
   let userChoice = await inquirer.prompt({
     type: "input",
     name: "userChoice",
@@ -71,11 +71,11 @@ const rockPaperScissorsGame = async () => {
   return userChoice.userChoice;
 };
 
-module.exports = {
-  name,
-  leftOrRight,
-  investigateSoundOrMove,
-  climbOrLookAway,
-  answerMath,
-  rockPaperScissorsGame,
-};
+// module.exports = {
+//   name,
+//   leftOrRight,
+//   investigateSoundOrMove,
+//   climbOrLookAway,
+//   answerMath,
+//   rockPaperScissorsGame,
+// };

@@ -1,21 +1,22 @@
-const chalk = require("chalk");
+import chalk from "chalk";
+import ca from "chalk-animation";
 
-const {
+import {
   name,
   leftOrRight,
   investigateSoundOrMove,
   climbOrLookAway,
   answerMath,
   rockPaperScissorsGame,
-} = require("./functions/inq");
+} from "./functions/inq.js";
 
-const {
+import {
   randomDecision,
   rockPaperScissors,
   victoryMessage,
-} = require("./functions/helper");
+} from "./functions/helper.js";
 
-let { player } = require("./store/playerStore");
+import { player } from "./store/playerStore.js";
 
 const start = async () => {
   console.log("what is your name?");

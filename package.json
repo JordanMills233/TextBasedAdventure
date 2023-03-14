@@ -2,9 +2,11 @@
   "name": "TextBasedAdventure",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "index.js",
   "dependencies": {
     "chalk": "^4.1.0",
+    "chalk-animation": "^2.0.3",
     "figlet": "^1.5.2"
   },
   "devDependencies": {
