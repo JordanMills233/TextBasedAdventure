@@ -1,4 +1,5 @@
 import inquirer from "inquirer";
+import ca from "chalk-animation";
 
 import { randomDecision, randomMathQuestion } from "./helper.js";
 
@@ -6,7 +7,7 @@ export const name = async () => {
   const { userInput } = await inquirer.prompt({
     type: "input",
     name: "userInput",
-    message: "what is your name?",
+    message: ca.glitch("what is your name?"),
   });
   if (!userInput.match(/^[A-Za-z]+$/)) {
     return "use letters only";
