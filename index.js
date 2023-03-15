@@ -53,24 +53,24 @@ const userInvestigateSoundOrMove = async () => {
   let result = await investigateSoundOrMove();
   console.log(result);
   if (result == "keep moving forward") {
-    console.log('You quickly retreat from the area, keeping a wary eye on the bushes as you back away. After a few minutes, you reach a clearing and take a moment to catch your breath. As you are catching your breathe you are suddenly pounced on by a tiger and are made into a mid afternoon snack')
-  }
-  else if (result == "Investigate the sound"){
-    console.log("You move cautiously toward the sound, and as you get closer, you see a pair of glowing eyes staring back at you from the darkness. A low growl rumbles from the bushes, and you realize that you've stumbled upon a large, wild animal")
+    console.log(
+      "You quickly retreat from the area, keeping a wary eye on the bushes as you back away. After a few minutes, you reach a clearing and take a moment to catch your breath. As you are catching your breathe you are suddenly pounced on by a tiger and are made into a mid afternoon snack"
+    );
+  } else if (result == "Investigate the sound") {
+    console.log(
+      "You move cautiously toward the sound, and as you get closer, you see a pair of glowing eyes staring back at you from the darkness. A low growl rumbles from the bushes, and you realize that you've stumbled upon a large, wild animal"
+    );
     UserRunAwayOrFight();
   }
-
 };
 const UserRunAwayOrFight = async () => {
   let result = await runAwayOrFight();
-  console.log(result);
   if (result == "Run away") {
-    console.log('pending')
+    console.log("pending");
+  } else if (result == "Fight") {
+    console.log("pending");
   }
-  else if (result == "Fight"){
-    console.log("pending")
-  }
-  }
+};
 
 const userClimbOrLookAway = async () => {
   let result = await climbOrLookAway();
