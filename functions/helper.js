@@ -17,6 +17,7 @@ export const randomMathQuestion = () => {
 export const rockPaperScissors = (userChoice) => {
   let options = ["rock", "paper", "scissors"];
   let oppChoice = options[Math.floor(Math.random() * 3)];
+  console.log(chalk.blueBright(`Opponent chose ${oppChoice}`));
 
   if (userChoice === oppChoice) {
     console.log(chalk.yellowBright("It's a tie!"));
