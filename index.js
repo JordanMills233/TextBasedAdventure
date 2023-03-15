@@ -19,7 +19,6 @@ import {
 import { player } from "./store/playerStore.js";
 
 const start = async () => {
-  console.log("what is your name?");
   while (player.name == "use letters only" || player.name == "") {
     console.log(player.name);
     player.name = await name();
