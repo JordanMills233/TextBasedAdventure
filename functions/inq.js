@@ -36,6 +36,16 @@ export const investigateSoundOrMove = async () => {
   return soundOrMove.soundOrMove;
 };
 
+export const runAwayOrFight = async () => {
+  const runOrFight = await inquirer.prompt({
+    type: "list",
+    name: "runOrFight",
+    message:"do you run away or fight the wild animal?",
+    choices: ["Run away","Fight"]
+  });
+  return runOrFight.runOrFight;
+}
+
 export const climbOrLookAway = async () => {
   const climbOrLook = await inquirer.prompt({
     type: "list",
