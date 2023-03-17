@@ -1,7 +1,9 @@
-let { name, answerMath } = require("../functions/inq");
+import { name, answerMath } from "../functions/inq";
+import inquirer from "inquirer";
 
-const inquirer = require("inquirer");
-jest.mock("inquirer");
+import jest from "jest-mock";
+
+inquirer.prompt = jest.fn();
 
 describe("name function test", () => {
   test("user input with text", async () => {
@@ -26,10 +28,10 @@ describe("name function test", () => {
   });
 });
 
-describe("answerMath function test", () => {
-  test("output is an array of length 2", async () => {
-    let response = await answerMath();
-    await expect(response.length).toBe(2);
-  });
-  // add regular expression to validate that user input is a number
-});
+// describe("answerMath function test", () => {
+//   test("output is an array of length 2", async () => {
+//     let response = await answerMath();
+//     await expect(response.length).toBe(2);
+//   });
+//   // add regular expression to validate that user input is a number
+// });

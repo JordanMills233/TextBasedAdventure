@@ -1,7 +1,6 @@
 import inquirer from "inquirer";
-import ca from "chalk-animation";
 
-import { randomDecision, randomMathQuestion } from "./helper.js";
+import { randomMathQuestion } from "./helper.js";
 
 export const name = async () => {
   const { userInput } = await inquirer.prompt({

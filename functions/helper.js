@@ -1,7 +1,6 @@
 import chalk from "chalk";
 import figlet from "figlet";
 
-// needs tests
 export const randomDecision = () => {
   return Math.floor(Math.random() * 10 + 1);
 };
@@ -16,16 +15,17 @@ export const randomMathQuestion = () => {
 
 export const rockPaperScissors = (userChoice) => {
   let options = ["rock", "paper", "scissors"];
-  let oppChoice = options[Math.floor(Math.random() * 3)];
+  let oppIndex = Math.floor(Math.random() * 3);
+  let oppChoice = options[oppIndex];
   console.log(chalk.blueBright(`Opponent chose ${oppChoice}`));
 
   if (userChoice === oppChoice) {
     console.log(chalk.yellowBright("It's a tie!"));
     return "tie";
   } else if (
-    (userChoice === "Rock" && oppChoice === "scissors") ||
-    (userChoice === "Paper" && oppChoice === "rock") ||
-    (userChoice === "Scissors" && oppChoice === "paper")
+    (userChoice === "rock" && oppChoice === "scissors") ||
+    (userChoice === "paper" && oppChoice === "rock") ||
+    (userChoice === "scissors" && oppChoice === "paper")
   ) {
     console.log(chalk.greenBright("You win!"));
     return "win";
