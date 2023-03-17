@@ -1,7 +1,5 @@
 import chalk from "chalk";
-import ca from "chalk-animation";
-//test
-//nice
+
 import {
   name,
   leftOrRight,
@@ -13,6 +11,7 @@ import {
 } from "./functions/inq.js";
 
 import {
+  deathMessage,
   randomDecision,
   rockPaperScissors,
   victoryMessage,
@@ -53,8 +52,9 @@ const userInvestigateSoundOrIgnore = async () => {
   let result = await investigateSoundOrIgnore();
   if (result == "Ignore the sound and find another way") {
     console.log(
-      "You quickly retreat from the area, keeping a wary eye on the bushes as you back away. After a few minutes, you reach a clearing and take a moment to catch your breath. As you are catching your breathe you are suddenly pounced on by a tiger and are made into a mid afternoon snack"
+      "as you get far enough away from the jungle you come across a strange looking old man he challenges you to a game of Rock Paper Scissors which if you Win you will amass fortunes and if you loose you will die a gruesome death"
     );
+    userRockPaperScissors();
   } else if (result == "Investigate the sound") {
     console.log(
       "You move cautiously toward the sound, and as you get closer, you see a pair of glowing eyes staring back at you from the darkness. A low growl rumbles from the bushes, and you realize that you've stumbled upon a large, wild animal"
@@ -62,13 +62,36 @@ const userInvestigateSoundOrIgnore = async () => {
     UserRunAwayOrFight();
   }
 };
+
 const UserRunAwayOrFight = async () => {
   let result = await runAwayOrFight();
   if (result == "Run away") {
-    console.log("pending");
+    console.log(`as you get far enough away from the jungle you come across a strange looking old man he challenges you to a game of Rock Paper Scissors which 
+if you Win you will amass fortunes and if you loose you will die a gruesome death`);
+    userRockPaperScissors();
   } else if (result == "Fight") {
     console.log("pending");
   }
+};
+
+const userRockPaperScissors = async () => {
+  console.log("Time to play rock paper scissors");
+  let userChoice = await rockPaperScissorsGame();
+  let result = rockPaperScissors(userChoice.toLowerCase());
+  while (result == "tie") {
+    result = userRockPaperScissors();
+  }
+  if (result == "win") {
+    console.log(`the old man congratulates you on your win and as promised he leads you to a cave opening, 
+you explore to the centre and you find ancient ruins holding a shiny artefact that looks like it would sell for a lot`);
+    victoryMessage();
+  } else {
+    console.log(`Oh no you lost you notice a rather unsettling look on the old mans face. You quickly retreat from the area, 
+keeping a wary eye on the bushes as you back away. After a few minutes, you reach a clearing and take a moment to catch your breath. 
+As you are catching your breathe you are suddenly pounced on by a tiger and are made into a mid afternoon snack`);
+    deathMessage();
+  }
+  return result;
 };
 
 const userClimbOrLookAway = async () => {
@@ -99,13 +122,3 @@ you see a cave opening, you explore to the centre and you find ancient ruins hol
 };
 
 start();
-
-// ROCK PAPER SCISSORS TESTING
-
-// const test = async () => {
-//   console.log("Time to play Rock Paper Scissors");
-//   let userChoice = await rockPaperScissorsGame();
-//   rockPaperScissors(userChoice.toLowerCase());
-// };
-
-// test();

@@ -21,14 +21,17 @@ export const rockPaperScissors = (userChoice) => {
 
   if (userChoice === oppChoice) {
     console.log(chalk.yellowBright("It's a tie!"));
+    return "tie";
   } else if (
-    (userChoice === "rock" && oppChoice === "scissors") ||
-    (userChoice === "paper" && oppChoice === "rock") ||
-    (userChoice === "scissors" && oppChoice === "paper")
+    (userChoice === "Rock" && oppChoice === "scissors") ||
+    (userChoice === "Paper" && oppChoice === "rock") ||
+    (userChoice === "Scissors" && oppChoice === "paper")
   ) {
     console.log(chalk.greenBright("You win!"));
+    return "win";
   } else {
     console.log(chalk.redBright("Opponent wins!"));
+    return "lose";
   }
 };
 
@@ -40,6 +43,17 @@ export const victoryMessage = () => {
       return;
     }
     console.log(chalk.greenBright(data));
+  });
+};
+
+export const deathMessage = () => {
+  figlet("OOPS YOU DIED", function (err, data) {
+    if (err) {
+      console.log("something went wrong...");
+      console.dir(err);
+      return;
+    }
+    console.log(chalk.redBright(data));
   });
 };
 

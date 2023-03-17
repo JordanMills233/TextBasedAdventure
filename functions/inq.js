@@ -76,9 +76,10 @@ export const answerMath = async () => {
 
 export const rockPaperScissorsGame = async () => {
   let userChoice = await inquirer.prompt({
-    type: "input",
+    type: "list",
     name: "userChoice",
     message: "Rock Paper Scissors GO...",
+    choices: ["Rock", "Paper", "Scissors"],
   });
   return userChoice.userChoice;
 };
