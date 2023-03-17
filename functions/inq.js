@@ -7,7 +7,7 @@ export const name = async () => {
   const { userInput } = await inquirer.prompt({
     type: "input",
     name: "userInput",
-    message: ca.glitch("what is your name?"),
+    message: "what is your name?",
   });
   if (!userInput.match(/^[A-Za-z]+$/)) {
     return "use letters only";
@@ -26,12 +26,13 @@ export const leftOrRight = async () => {
   return pathChosen.leftOrRight;
 };
 
-export const investigateSoundOrMove = async () => {
+export const investigateSoundOrIgnore = async () => {
   const soundOrMove = await inquirer.prompt({
     type: "list",
     name: "soundOrMove",
-    message: "Do you Investigate the sound or Keep moving forward",
-    choices: ["Investigate the sound", "Keep moving forward"],
+    message:
+      "Do you Investigate the sound or Ignore the sound and find another way",
+    choices: ["Investigate the sound", "Ignore the sound and find another way"],
   });
   return soundOrMove.soundOrMove;
 };
@@ -40,11 +41,11 @@ export const runAwayOrFight = async () => {
   const runOrFight = await inquirer.prompt({
     type: "list",
     name: "runOrFight",
-    message:"do you run away or fight the wild animal?",
-    choices: ["Run away","Fight"]
+    message: "do you run away or fight the wild animal?",
+    choices: ["Run away", "Fight"],
   });
   return runOrFight.runOrFight;
-}
+};
 
 export const climbOrLookAway = async () => {
   const climbOrLook = await inquirer.prompt({

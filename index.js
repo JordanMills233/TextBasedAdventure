@@ -5,7 +5,7 @@ import ca from "chalk-animation";
 import {
   name,
   leftOrRight,
-  investigateSoundOrMove,
+  investigateSoundOrIgnore,
   climbOrLookAway,
   answerMath,
   runAwayOrFight,
@@ -40,7 +40,7 @@ One path leads to the left, and the other leads to the right. Which path do you 
       `As you walk down the path to the left, you notice that the jungle becomes more dense and overgrown. You have to push your way through thick vines and branches,
 and you begin to feel as though you're being watched. Suddenly, you hear a rustling in the bushes ahead of you.`
     );
-    userInvestigateSoundOrMove();
+    userInvestigateSoundOrIgnore();
   } else if (chosenPath == "right") {
     console.log(`As you walk down the path to the right, you notice that the jungle begins to thin out and the air becomes cooler.
 You can hear the sound of rushing water in the distance, and you start to feel hopeful that you might find something interesting.
@@ -49,10 +49,9 @@ Suddenly, you come to the edge of a cliff, with a waterfall cascading down into 
   }
 };
 
-const userInvestigateSoundOrMove = async () => {
-  let result = await investigateSoundOrMove();
-  console.log(result);
-  if (result == "keep moving forward") {
+const userInvestigateSoundOrIgnore = async () => {
+  let result = await investigateSoundOrIgnore();
+  if (result == "Ignore the sound and find another way") {
     console.log(
       "You quickly retreat from the area, keeping a wary eye on the bushes as you back away. After a few minutes, you reach a clearing and take a moment to catch your breath. As you are catching your breathe you are suddenly pounced on by a tiger and are made into a mid afternoon snack"
     );
