@@ -84,11 +84,33 @@ export const rockPaperScissorsGame = async () => {
   return userChoice.userChoice;
 };
 
-// module.exports = {
-//   name,
-//   leftOrRight,
-//   investigateSoundOrMove,
-//   climbOrLookAway,
-//   answerMath,
-//   rockPaperScissorsGame,
-// };
+export const promptMove = async () => {
+  let choice = await inquirer.prompt({
+    type: "list",
+    name: "move",
+    message: "Choose a move:",
+    choices: ["attack", "defend"],
+  });
+  return [
+    choice.move,
+    choice.move == "defend" ? await chooseDefensive() : await chooseOffensive(),
+  ];
+};
+
+export const chooseOffensive = async () => {
+  return await inquirer.prompt({
+    type: "list",
+    name: "move",
+    message: "Pick your offensive move",
+    choices: ["Swing sword", "Throw knife", "Leg sweep", "Slap"],
+  });
+};
+
+export const chooseDefensive = async () => {
+  return await inquirer.prompt({
+    type: "list",
+    name: "move",
+    message: "Pick your offensive move",
+    choices: ["Dodge roll", "Duck", "Backflip", "Pretend to be dead"],
+  });
+};

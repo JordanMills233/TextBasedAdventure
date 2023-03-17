@@ -8,6 +8,7 @@ import {
   answerMath,
   runAwayOrFight,
   rockPaperScissorsGame,
+  promptMove,
 } from "./functions/inq.js";
 
 import {
@@ -70,7 +71,45 @@ const UserRunAwayOrFight = async () => {
 if you Win you will amass fortunes and if you loose you will die a gruesome death`);
     userRockPaperScissors();
   } else if (result == "Fight") {
-    console.log("pending");
+    tigerFight();
+  }
+};
+
+const tigerFight = async () => {
+  let tigerHP = 10;
+  while (tigerHP > 0 && player.health > 0) {
+    let result = await promptMove();
+    if (result[0] == "attack") {
+      if (randomDecision() > 4) {
+        console.log(result[1].move + " was succesful Tiger loses 2 HP");
+        tigerHP -= 2;
+        console.log(chalk.greenBright(`HP REMAINING: ${player.health}`));
+        console.log(chalk.redBright(`TIGER HP REMAINING: ${tigerHP}`));
+      } else {
+        console.log(result[1].move + " failed you lose 2 HP");
+        player.health -= 2;
+        console.log(chalk.greenBright(`HP REMAINING: ${player.health}`));
+        console.log(chalk.redBright(`TIGER HP REMAINING: ${tigerHP}`));
+      }
+    } else if (result[0] == "defend") {
+      if (randomDecision() > 3) {
+        console.log(result[1].move + " was succesful you dont lose any HP");
+        console.log(chalk.greenBright(`HP REMAINING: ${player.health}`));
+        console.log(chalk.redBright(`TIGER HP REMAINING: ${tigerHP}`));
+      } else {
+        console.log(result[1].move + " failed you lose 2 HP");
+        player.health -= 2;
+        console.log(chalk.greenBright(`HP REMAINING: ${player.health}`));
+        console.log(chalk.redBright(`TIGER HP REMAINING: ${tigerHP}`));
+      }
+    }
+  }
+  if (tigerHP == 0) {
+    console.log(`After your tough fought victory you spend some time calming your nerves before moving forward after only a short walk through the forest you stumble upon a
+a cave opening, you explore to the centre of the cave and you find ancient ruins holding a shiny artefact that looks like it would sell for a lot`);
+    victoryMessage();
+  } else {
+    deathMessage();
   }
 };
 

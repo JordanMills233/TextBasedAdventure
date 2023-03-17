@@ -36,7 +36,7 @@ export const rockPaperScissors = (userChoice) => {
 };
 
 export const victoryMessage = () => {
-  figlet("YOU FOUND THE TREASURE", function (err, data) {
+  figlet("YOU FOUND THE TREASURE !", function (err, data) {
     if (err) {
       console.log("Something went wrong...");
       console.dir(err);
@@ -47,7 +47,7 @@ export const victoryMessage = () => {
 };
 
 export const deathMessage = () => {
-  figlet("OOPS YOU DIED", function (err, data) {
+  figlet("OOPS YOU DIED !", function (err, data) {
     if (err) {
       console.log("something went wrong...");
       console.dir(err);
@@ -56,10 +56,3 @@ export const deathMessage = () => {
     console.log(chalk.redBright(data));
   });
 };
-
-// module.exports = {
-//   randomDecision,
-//   randomMathQuestion,
-//   rockPaperScissors,
-//   victoryMessage,
-// };
