@@ -1,5 +1,6 @@
 import chalk from "chalk";
 import figlet from "figlet";
+import { player } from "../store/playerStore";
 
 export const randomDecision = () => {
   return Math.floor(Math.random() * 10 + 1);
@@ -11,6 +12,20 @@ export const randomMathQuestion = () => {
 
   console.log(chalk.bgRedBright(` What is ${int1} + ${int2} `));
   return int1 + int2;
+};
+
+export const decreaseHP = (amount) => {
+  if (amount < 0) {
+    console.log("Can only decreas HP with positive integer");
+    return;
+  }
+
+  if (amount > player.health) {
+    player.health = 0;
+    return;
+  }
+
+  player.health -= amount;
 };
 
 export const rockPaperScissors = (userChoice) => {

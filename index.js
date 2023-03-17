@@ -15,6 +15,7 @@ import {
   deathMessage,
   randomDecision,
   rockPaperScissors,
+  decreaseHP,
   victoryMessage,
 } from "./functions/helper.js";
 
@@ -87,7 +88,7 @@ const tigerFight = async () => {
         console.log(chalk.redBright(`TIGER HP REMAINING: ${tigerHP}`));
       } else {
         console.log(result[1].move + " failed you lose 2 HP");
-        player.health -= 2;
+        decreaseHP(2);
         console.log(chalk.greenBright(`HP REMAINING: ${player.health}`));
         console.log(chalk.redBright(`TIGER HP REMAINING: ${tigerHP}`));
       }
@@ -98,7 +99,7 @@ const tigerFight = async () => {
         console.log(chalk.redBright(`TIGER HP REMAINING: ${tigerHP}`));
       } else {
         console.log(result[1].move + " failed you lose 2 HP");
-        player.health -= 2;
+        decreaseHP(2);
         console.log(chalk.greenBright(`HP REMAINING: ${player.health}`));
         console.log(chalk.redBright(`TIGER HP REMAINING: ${tigerHP}`));
       }

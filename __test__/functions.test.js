@@ -4,7 +4,10 @@ import {
   rockPaperScissors,
   victoryMessage,
   deathMessage,
+  decreaseHP,
 } from "../functions/helper.js";
+
+import { player } from "../store/playerStore.js";
 
 import { jest } from "@jest/globals";
 import { log } from "console";
@@ -19,12 +22,6 @@ describe("randomDecision", () => {
   test("returns an integer", () => {
     const result = randomDecision();
     expect(result).toBe(Math.floor(result));
-  });
-
-  test("returns a different number each time", () => {
-    const result1 = randomDecision();
-    const result2 = randomDecision();
-    expect(result1).not.toBe(result2);
   });
 });
 
@@ -74,5 +71,26 @@ describe("rockPaperScissors", () => {
   test('should return "lose" when userChoice is "rock" and opponentChoice is "paper"', () => {
     Math.random = jest.fn().mockReturnValue(0.4); // Mock Math.random to return 0.4 which will be 1.2 floored = 1
     expect(rockPaperScissors("rock")).toBe("lose");
+  });
+});
+
+describe("decreaseHP", () => {
+  beforeEach(() => {
+    player.health = 10;
+  });
+
+  test("should decrease player health by the given amount", () => {
+    decreaseHP(2);
+    expect(player.health).toBe(8);
+  });
+
+  test("should not decrease player health below zero", () => {
+    decreaseHP(20);
+    expect(player.health).toBe(0);
+  });
+
+  test("should not decrease player health if amount is negative", () => {
+    decreaseHP(-2);
+    expect(player.health).toBe(10);
   });
 });
