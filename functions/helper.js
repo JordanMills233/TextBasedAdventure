@@ -1,6 +1,6 @@
 import chalk from "chalk";
 import figlet from "figlet";
-import { player } from "../store/playerStore";
+import { player } from "../store/playerStore.js";
 
 export const randomDecision = () => {
   return Math.floor(Math.random() * 10 + 1);

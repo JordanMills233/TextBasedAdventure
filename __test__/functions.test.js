@@ -2,8 +2,6 @@ import {
   randomDecision,
   randomMathQuestion,
   rockPaperScissors,
-  victoryMessage,
-  deathMessage,
   decreaseHP,
 } from "../functions/helper.js";
 

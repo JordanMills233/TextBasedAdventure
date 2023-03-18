@@ -64,7 +64,8 @@ export const answerMath = async () => {
     message:
       "please answer the math question above you have 1 try dont mess this up!",
   });
-  if (!answerForMath.answerForMath.match(/^[0-9]*$/)) {
+  let result = answerForMath.answerForMath.match(/^[0-9]*$/);
+  if (!result) {
     console.log("TRY AGAIN NUMBERS ONLY");
     [answer, answerForMath.answerForMath] = await answerMath();
   } else {
