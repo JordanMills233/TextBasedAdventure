@@ -1,5 +1,4 @@
 import chalk from "chalk";
-import ca from "chalk-animation";
 
 import {
   name,
@@ -32,11 +31,9 @@ const start = async () => {
 
 const userLeftOrRight = async () => {
   console.log(
-    ca.karaoke(
-      `You are a young adventurer named ${player.name}, who has been hired to explore a mysterious island that no one has ever visited before.
+    `You are a young adventurer named ${player.name}, who has been hired to explore a mysterious island that no one has ever visited before.
 As you make your way through the dense jungle, you come across a fork in the path.
 One path leads to the left, and the other leads to the right. Which path do you choose?`
-    )
   );
   let chosenPath = await leftOrRight();
   if (chosenPath == "left") {
