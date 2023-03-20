@@ -1,4 +1,5 @@
 import chalk from "chalk";
+import ca from "chalk-animation";
 
 import {
   name,
@@ -21,6 +22,8 @@ import {
 
 import { player } from "./store/playerStore.js";
 
+const sleep = (ms = 10000) => new Promise((r) => setTimeout(r, ms));
+
 const start = async () => {
   while (player.name == "use letters only" || player.name == "") {
     console.log(player.name);
@@ -30,17 +33,21 @@ const start = async () => {
 };
 
 const userLeftOrRight = async () => {
-  console.log(
+  const pulse = ca.pulse(
     `You are a young adventurer named ${player.name}, who has been hired to explore a mysterious island that no one has ever visited before.
 As you make your way through the dense jungle, you come across a fork in the path.
 One path leads to the left, and the other leads to the right. Which path do you choose?`
   );
+  await sleep();
+  pulse.stop();
   let chosenPath = await leftOrRight();
   if (chosenPath == "left") {
-    console.log(
+    const pulsetext = ca.pulse(
       `As you walk down the path to the left, you notice that the jungle becomes more dense and overgrown. You have to push your way through thick vines and branches,
 and you begin to feel as though you're being watched. Suddenly, you hear a rustling in the bushes ahead of you.`
     );
+    await sleep();
+    pulsetext.stop();
     userInvestigateSoundOrIgnore();
   } else if (chosenPath == "right") {
     console.log(`As you walk down the path to the right, you notice that the jungle begins to thin out and the air becomes cooler.
