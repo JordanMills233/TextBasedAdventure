@@ -119,7 +119,7 @@ const userRockPaperScissors = async () => {
   let userChoice = await rockPaperScissorsGame();
   let result = rockPaperScissors(userChoice.toLowerCase());
   while (result == "tie") {
-    result = userRockPaperScissors();
+    result = await userRockPaperScissors();
   }
   if (result == "win") {
     console.log(`the old man congratulates you on your win and as promised he leads you to a cave opening, 
